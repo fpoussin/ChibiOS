@@ -48,6 +48,16 @@
 /* Common.                                                                   */
 /*===========================================================================*/
 
+/* ADC attributes.*/
+#define STM32_HAS_ADC1                      TRUE
+#define STM32_HAS_ADC2                      TRUE
+#define STM32_HAS_ADC3                      TRUE
+#define STM32_HAS_ADC4                      FALSE
+
+#define STM32_HAS_SDADC1                    FALSE
+#define STM32_HAS_SDADC2                    FALSE
+#define STM32_HAS_SDADC3                    FALSE
+
 /* RNG attributes.*/
 #define STM32_HAS_RNG1                      TRUE
 
@@ -122,7 +132,6 @@
 /* CAN attributes.*/
 #define STM32_HAS_FDCAN1                    TRUE
 #define STM32_HAS_FDCAN2                    TRUE
-#define STM32_HAS_FDCAN3                    FALSE
 #define STM32_FDCAN_FLS_NBR                 128U
 #define STM32_FDCAN_FLE_NBR                 128U
 #define STM32_FDCAN_RF0_NBR                 64U
@@ -131,6 +140,10 @@
 #define STM32_FDCAN_TEF_NBR                 32U
 #define STM32_FDCAN_TB_NBR                  32U
 #define STM32_FDCAN_TM_NBR                  64U
+
+/* CRC attributes.*/
+#define STM32_HAS_CRC                       TRUE
+#define STM32_CRC_PROGRAMMABLE              TRUE
 
 /* DAC attributes.*/
 #define STM32_HAS_DAC1_CH1                  TRUE
@@ -150,6 +163,51 @@
 
 /* MDMA attributes.*/
 #define STM32_HAS_MDMA1                     TRUE
+
+/* FSMC attributes.*/
+#define STM32_HAS_FSMC                      TRUE
+#define STM32_FSMC_IS_FMC                   TRUE
+
+/* I2C attributes.*/
+#define STM32_HAS_I2C1                      TRUE
+#define STM32_HAS_I2C2                      TRUE
+#define STM32_HAS_I2C3                      TRUE
+#define STM32_HAS_I2C4                      TRUE
+
+/* IWDG attributes.*/
+#define STM32_HAS_IWDG                      TRUE
+#define STM32_IWDG_IS_WINDOWED              TRUE
+
+/*===========================================================================*/
+/* STM32H730xx, STM32H750xx, STM32H7B0xx, STM32H733xx, STM32H735xx,          */
+/* STM32H753xx, STM32H7B3xx, STM32H755xx, STM32H757xx                        */
+/*===========================================================================*/
+#if defined(STM32H730xx) || defined(STM32H750xx) || \
+    defined(STM32H7B0xx) || defined(STM32H733xx) || \
+    defined(STM32H735xx) || defined(STM32H753xx) || \
+    defined(STM32H7B3xx) || defined(STM32H755xx) || \
+    defined(STM32H757xx) || \
+    defined(__DOXYGEN__)
+
+/* HASH attributes.*/
+#define STM32_HAS_HASH1                     TRUE
+
+/* CRYP attributes.*/
+#define STM32_HAS_CRYP1                     TRUE
+
+#endif
+
+/*===========================================================================*/
+/* STM32H743xx, STM32H753xx, STM32H745xx, STM32H755xx, STM32H747xx,          */
+/* STM32H757xx.                                                              */
+/*===========================================================================*/
+#if defined(STM32H743xx) || defined(STM32H753xx) ||                         \
+    defined(STM32H745xx) || defined(STM32H755xx) ||                         \
+    defined(STM32H747xx) || defined(STM32H757xx) ||                         \
+    defined(__DOXYGEN__)
+
+/* CAN attributes.*/
+#define STM32_HAS_FDCAN3                    FALSE
 
 /* ETH attributes.*/
 #define STM32_HAS_ETH                       TRUE
@@ -183,12 +241,6 @@
                                              RCC_AHB4ENR_GPIOIEN |          \
                                              RCC_AHB4ENR_GPIOJEN |          \
                                              RCC_AHB4ENR_GPIOKEN)
-
-/* I2C attributes.*/
-#define STM32_HAS_I2C1                      TRUE
-#define STM32_HAS_I2C2                      TRUE
-#define STM32_HAS_I2C3                      TRUE
-#define STM32_HAS_I2C4                      TRUE
 
 /* QUADSPI attributes.*/
 #define STM32_HAS_QUADSPI1                  TRUE
@@ -309,23 +361,11 @@
 
 #define STM32_HAS_USB                       FALSE
 
-/* IWDG attributes.*/
-#define STM32_HAS_IWDG                      TRUE
-#define STM32_IWDG_IS_WINDOWED              TRUE
-
 /* LTDC attributes.*/
 #define STM32_HAS_LTDC                      TRUE
 
 /* DMA2D attributes.*/
 #define STM32_HAS_DMA2D                     TRUE
-
-/* FSMC attributes.*/
-#define STM32_HAS_FSMC                      TRUE
-#define STM32_FSMC_IS_FMC                   TRUE
-
-/* CRC attributes.*/
-#define STM32_HAS_CRC                       TRUE
-#define STM32_CRC_PROGRAMMABLE              TRUE
 
 /* DCMI attributes.*/
 #define STM32_HAS_DCMI                      TRUE
@@ -339,38 +379,8 @@
 #if defined(STM32H750xx) ||                                                 \
     defined(__DOXYGEN__)
 
-/* ADC attributes.*/
-#define STM32_HAS_ADC1                      TRUE
-#define STM32_HAS_ADC2                      TRUE
-#define STM32_HAS_ADC3                      FALSE
-#define STM32_HAS_ADC4                      FALSE
-
-#define STM32_HAS_SDADC1                    FALSE
-#define STM32_HAS_SDADC2                    FALSE
-#define STM32_HAS_SDADC3                    FALSE
-
 /* CAN attributes.*/
-#define STM32_HAS_FDCAN1                    TRUE
-#define STM32_HAS_FDCAN2                    TRUE
-
-/* DAC attributes.*/
-#define STM32_HAS_DAC1_CH1                  TRUE
-#define STM32_HAS_DAC1_CH2                  TRUE
-#define STM32_HAS_DAC2_CH1                  FALSE
-#define STM32_HAS_DAC2_CH2                  FALSE
-
-/* BDMA attributes.*/
-#define STM32_HAS_BDMA1                     TRUE
-
-/* DMA attributes.*/
-#define STM32_ADVANCED_DMA                  TRUE
-#define STM32_DMA_SUPPORTS_DMAMUX           TRUE
-
-#define STM32_HAS_DMA1                      TRUE
-#define STM32_HAS_DMA2                      TRUE
-
-/* MDMA attributes.*/
-#define STM32_HAS_MDMA1                     TRUE
+#define STM32_HAS_FDCAN3                    FALSE
 
 /* ETH attributes.*/
 #define STM32_HAS_ETH                       TRUE
@@ -404,12 +414,6 @@
                                              RCC_AHB4ENR_GPIOIEN |          \
                                              RCC_AHB4ENR_GPIOJEN |          \
                                              RCC_AHB4ENR_GPIOKEN)
-
-/* I2C attributes.*/
-#define STM32_HAS_I2C1                      TRUE
-#define STM32_HAS_I2C2                      TRUE
-#define STM32_HAS_I2C3                      TRUE
-#define STM32_HAS_I2C4                      TRUE
 
 /* QUADSPI attributes.*/
 #define STM32_HAS_QUADSPI1                  TRUE
@@ -530,23 +534,11 @@
 
 #define STM32_HAS_USB                       FALSE
 
-/* IWDG attributes.*/
-#define STM32_HAS_IWDG                      TRUE
-#define STM32_IWDG_IS_WINDOWED              TRUE
-
 /* LTDC attributes.*/
 #define STM32_HAS_LTDC                      TRUE
 
 /* DMA2D attributes.*/
 #define STM32_HAS_DMA2D                     TRUE
-
-/* FSMC attributes.*/
-#define STM32_HAS_FSMC                      TRUE
-#define STM32_FSMC_IS_FMC                   TRUE
-
-/* CRC attributes.*/
-#define STM32_HAS_CRC                       TRUE
-#define STM32_CRC_PROGRAMMABLE              TRUE
 
 /* DCMI attributes.*/
 #define STM32_HAS_DCMI                      TRUE
