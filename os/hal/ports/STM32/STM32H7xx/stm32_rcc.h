@@ -952,7 +952,7 @@
 #define rccResetUSB1_OTG_FS() rccResetAHB1(RCC_AHB1RSTR_USB2OTGFSRST)
 
 /**
- * @brief   Enables the USB2_OTG_HS peripheral clock.
+ * @brief   Enables the USB2_OTG_FS peripheral clock.
  *
  * @param[in] lp        low power enable flag
  *
@@ -961,14 +961,14 @@
 #define rccEnableUSB2_OTG_FS(lp) rccEnableAHB1(RCC_AHB1ENR_USB2OTGFSEN, lp)
 
 /**
- * @brief   Disables the USB2_OTG_HS peripheral clock.
+ * @brief   Disables the USB2_OTG_FS peripheral clock.
  *
  * @api
  */
 #define rccDisableUSB2_OTG_FS() rccDisableAHB1(RCC_AHB1ENR_USB2OTGFSEN)
 
 /**
- * @brief   Resets the USB2_OTG_HS peripheral.
+ * @brief   Resets the USB2_OTG_FS peripheral.
  *
  * @api
  */
